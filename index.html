@@ -11,15 +11,16 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --cream:       #FAF5F0;
-    --orange-pale: #F5DDD0;
-    --orange:      #C85A1E;
-    --orange-deep: #8C3810;
-    --dark-warm:   #3A2018;
-    --ink:         #1A1410;
-    --warm-mid:    #6A5040;
-    --body-mobile: #3A2018;
-    --hairline:    rgba(200,90,30,0.18);
+    --cream:          #FAF5F0;
+    --orange-pale:    #F5DDD0;
+    --orange:         #C85A1E;
+    --orange-deep:    #8C3810;
+    --ink:            #1A1410;
+    --warm-mid:       #6A5040;
+    --body-mobile:    #3A2018;
+    --hairline:       rgba(200,90,30,0.18);
+    --hairline-strong: rgba(200,90,30,0.4);
+    --hairline-light: rgba(250,245,240,0.35);
   }
 
   html { scroll-behavior: smooth; }
@@ -31,7 +32,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -96,7 +97,7 @@
     text-transform: uppercase;
     color: var(--ink);
     text-decoration: none;
-    border-bottom: 0.5px solid var(--ink);
+    border-bottom: 0.5px solid var(--hairline);
     padding-bottom: 2px;
     transition: color 0.2s, border-color 0.2s;
     white-space: nowrap;
@@ -106,26 +107,13 @@
 
   section { width: 100%; }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
     background: var(--cream);
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 7rem 1.5rem 4rem;
-  }
-
-  .hero-eyebrow {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 2rem;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.2s;
+    justify-content: flex-start;
+    padding: 5rem 1.5rem 3rem;
   }
 
   .hero-headline {
@@ -136,21 +124,12 @@
     letter-spacing: -0.01em;
     color: var(--ink);
     opacity: 0;
-    animation: fadeUp 0.9s ease forwards 0.4s;
+    animation: fadeUp 0.9s ease forwards 0.2s;
   }
 
   .hero-headline em {
     font-style: italic;
     color: var(--orange);
-  }
-
-  .hero-divider {
-    width: 28px;
-    height: 0.5px;
-    background: var(--orange);
-    margin: 2.2rem 0;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.6s;
   }
 
   .hero-sub {
@@ -159,13 +138,25 @@
     font-size: 1.2rem;
     line-height: 1.85;
     color: var(--body-mobile);
+    margin-top: 2rem;
     opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.75s;
+    animation: fadeUp 0.8s ease forwards 0.5s;
+  }
+
+  .hero-why9 {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--warm-mid);
+    margin-top: 1.2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.65s;
   }
 
   .hero-cta {
     display: inline-block;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     font-family: 'DM Sans', sans-serif;
     font-size: 10px;
     font-weight: 400;
@@ -177,7 +168,7 @@
     padding-bottom: 3px;
     transition: opacity 0.2s;
     opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.9s;
+    animation: fadeUp 0.8s ease forwards 0.8s;
   }
 
   .hero-cta:hover { opacity: 0.7; }
@@ -187,11 +178,11 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── RECOGNITION ── */
+  /* RECOGNITION */
   .recognition {
     background: var(--cream);
-    padding: 4rem 1.5rem;
-    border-top: 0.5px solid var(--hairline);
+    padding: 3.5rem 1.5rem;
+    border-top: 0.5px solid var(--hairline-strong);
   }
 
   .recognition p {
@@ -201,28 +192,46 @@
     font-weight: 300;
   }
 
-  .recognition p + p { margin-top: 1.6rem; }
+  .recognition p + p { margin-top: 1.4rem; }
 
   .recognition .signal {
     font-style: italic;
     color: var(--orange);
   }
 
-  /* ── HOW WE WORK ── */
+  /* HOW WE WORK */
   .how {
     background: var(--orange);
-    padding: 4rem 1.5rem;
+    padding: 3.5rem 1.5rem;
   }
 
   .how-label {
     font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
     letter-spacing: 0.24em;
     text-transform: uppercase;
     color: var(--cream);
-    opacity: 0.6;
-    margin-bottom: 2.5rem;
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .how-bespoke {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 1.45;
+    color: var(--cream);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--hairline-light);
+  }
+
+  .how-bespoke em {
+    font-style: italic;
+    color: rgba(250,245,240,0.65);
+    font-weight: 400;
   }
 
   .how-phases {
@@ -233,7 +242,7 @@
 
   .phase {
     padding: 2rem 0;
-    border-bottom: 0.5px solid rgba(250,245,240,0.2);
+    border-bottom: 1px solid var(--hairline-light);
   }
 
   .phase:last-child { border-bottom: none; padding-bottom: 0; }
@@ -250,26 +259,26 @@
   .phase-body {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     line-height: 1.85;
     color: rgba(250,245,240,0.85);
   }
 
-  /* ── OFFERINGS ── */
+  /* OFFERINGS */
   .offerings {
     background: var(--cream);
-    padding: 4rem 1.5rem;
-    border-top: 0.5px solid var(--hairline);
+    padding: 3.5rem 1.5rem;
+    border-top: 0.5px solid var(--hairline-strong);
   }
 
   .offerings-label {
     font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
     letter-spacing: 0.24em;
     text-transform: uppercase;
     color: var(--orange);
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
   }
 
   .offerings-intro {
@@ -278,60 +287,43 @@
     font-size: 1.15rem;
     line-height: 1.85;
     color: var(--body-mobile);
-    margin-bottom: 2.5rem;
-  }
-
-  /* BESPOKE SECTION */
-  .bespoke-section {
-    background: var(--cream);
-    padding: 4rem 1.5rem;
-    border-top: 0.5px solid var(--hairline);
-  }
-
-  .bespoke-statement {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: 1.7rem;
-    line-height: 1.45;
-    color: var(--ink);
-    max-width: 680px;
-  }
-
-  .bespoke-statement em {
-    font-style: italic;
-    color: var(--orange);
-    font-weight: 400;
+    margin-bottom: 2rem;
   }
 
   .offerings-grid {
     display: flex;
     flex-direction: column;
     gap: 0;
-    border-top: 0.5px solid var(--hairline);
+  }
+
+  .offerings-grid-rule {
+    width: 100%;
+    height: 0.5px;
+    background: var(--hairline-strong);
+    margin-bottom: 0;
   }
 
   .offering-item {
-    padding: 2.2rem 0;
-    border-bottom: 0.5px solid var(--hairline);
+    padding: 2rem 0;
+    border-bottom: 0.5px solid var(--hairline-strong);
   }
 
   .offering-item:last-child { border-bottom: none; }
 
   .offering-tag {
     font-family: 'DM Sans', sans-serif;
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--orange);
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.7rem;
     display: block;
   }
 
   .offering-name {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
-    font-size: 1.75rem;
+    font-size: 2rem;
     color: var(--ink);
     line-height: 1.2;
     margin-bottom: 0.9rem;
@@ -341,7 +333,7 @@
   .offering-body {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     line-height: 1.8;
     color: var(--body-mobile);
     margin-bottom: 1rem;
@@ -349,7 +341,7 @@
 
   .offering-meta {
     font-family: 'DM Sans', sans-serif;
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--orange);
@@ -357,21 +349,21 @@
     display: block;
   }
 
-  /* ── SINGLE SESSION ── */
+  /* SINGLE SESSION */
   .single-session {
     background: var(--orange);
-    padding: 4rem 1.5rem;
+    padding: 3.5rem 1.5rem;
   }
 
   .single-session-label {
     font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
     letter-spacing: 0.24em;
     text-transform: uppercase;
     color: var(--cream);
     opacity: 0.8;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .single-session-headline {
@@ -380,7 +372,7 @@
     font-size: 2.2rem;
     line-height: 1.12;
     color: var(--cream);
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
   }
 
   .single-session-headline em {
@@ -388,18 +380,10 @@
     color: rgba(250,245,240,0.75);
   }
 
-  .single-session-divider {
-    width: 28px;
-    height: 0.5px;
-    background: var(--cream);
-    margin: 2rem 0;
-    opacity: 0.35;
-  }
-
   .single-session-body {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     line-height: 1.9;
     color: rgba(250,245,240,0.88);
     margin-bottom: 2.5rem;
@@ -421,22 +405,22 @@
 
   .ss-cta:hover { background: var(--orange-pale); }
 
-  /* ── ABOUT ── */
+  /* ABOUT */
   .about {
     background: var(--orange-pale);
-    padding: 4rem 1.5rem;
+    padding: 3.5rem 1.5rem;
   }
 
   .about-label-row {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.8rem;
   }
 
   .about-label {
     font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
     letter-spacing: 0.24em;
     text-transform: uppercase;
@@ -463,41 +447,39 @@
     display: block;
   }
 
-  .about-content { width: 100%; }
-
   .about-text {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.9;
     color: var(--orange-deep);
   }
 
   .about-text + .about-text { margin-top: 1.3rem; }
 
-  /* ── FAQ ── */
+  /* FAQ */
   .faq {
     background: var(--orange-pale);
-    padding: 3rem 1.5rem 5rem;
-    border-top: 0.5px solid rgba(140,56,16,0.15);
+    padding: 2.5rem 1.5rem 4rem;
+    border-top: 0.5px solid var(--hairline-strong);
   }
 
   .faq-label {
     font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
     letter-spacing: 0.24em;
     text-transform: uppercase;
     color: var(--orange-deep);
     opacity: 0.7;
-    margin-bottom: 2rem;
+    margin-bottom: 1.8rem;
   }
 
   .faq-item {
-    border-bottom: 0.5px solid rgba(140,56,16,0.25);
+    border-bottom: 0.5px solid rgba(140,56,16,0.35);
   }
 
-  .faq-item:first-of-type { border-top: 0.5px solid rgba(140,56,16,0.25); }
+  .faq-item:first-of-type { border-top: 0.5px solid rgba(140,56,16,0.35); }
 
   .faq-toggle {
     width: 100%;
@@ -515,7 +497,7 @@
   .faq-q {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--orange-deep);
     line-height: 1.4;
   }
@@ -571,17 +553,17 @@
   .faq-a {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     line-height: 1.85;
     color: var(--orange-deep);
     opacity: 0.85;
     padding-bottom: 1.4rem;
   }
 
-  /* ── CTA + FOOTER ── */
+  /* CTA + FOOTER */
   .cta {
     background: var(--ink);
-    padding: 5rem 1.5rem 4rem;
+    padding: 4.5rem 1.5rem 3.5rem;
     border-top: 0.5px solid rgba(200,90,30,0.2);
   }
 
@@ -598,7 +580,7 @@
   .cta-body {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     line-height: 1.85;
     color: rgba(250,245,240,0.65);
     margin-bottom: 0.6rem;
@@ -607,7 +589,7 @@
   .cta-sub {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: rgba(250,245,240,0.38);
     margin-bottom: 2.5rem;
   }
@@ -629,9 +611,9 @@
   .cta-btn:hover { background: var(--orange-deep); }
 
   .footer-line {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 0.5px solid rgba(250,245,240,0.12);
+    margin-top: 3.5rem;
+    padding-top: 1.8rem;
+    border-top: 0.5px solid rgba(250,245,240,0.15);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -692,25 +674,20 @@
     fill: currentColor;
   }
 
-  /* ── TABLET: 768px and up ── */
+  /* TABLET: 768px and up */
   @media (min-width: 768px) {
-    nav {
-      padding: 1.3rem 3rem;
-    }
-
+    nav { padding: 1.3rem 3rem; }
     .nav-cta { font-size: 10px; }
 
-    .hero {
-      padding: 9rem 3rem 5rem;
-    }
-
+    .hero { padding: 7rem 3rem 3.5rem; }
     .hero-headline { font-size: 4rem; }
-    .hero-sub { font-size: 1.2rem; color: var(--warm-mid); }
+    .hero-sub { color: var(--warm-mid); }
 
     .recognition { padding: 5rem 3rem; }
-    .recognition p { font-size: 1.25rem; color: var(--warm-mid); }
+    .recognition p { color: var(--warm-mid); }
 
     .how { padding: 5rem 3rem; }
+    .how-bespoke { font-size: 1.7rem; }
     .how-phases {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -718,40 +695,35 @@
     .phase {
       padding: 0 2.5rem 0 0;
       border-bottom: none;
-      border-right: 0.5px solid rgba(250,245,240,0.2);
+      border-right: 1px solid var(--hairline-light);
     }
     .phase:last-child { border-right: none; padding-right: 0; }
     .phase:not(:first-child) { padding-left: 2.5rem; }
 
     .offerings { padding: 5rem 3rem; }
     .offerings-intro { color: var(--warm-mid); }
-    .bespoke-statement { font-size: 1.6rem; }
     .offerings-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
     }
     .offering-item {
-      padding: 2.5rem 2.5rem 2.5rem 0;
+      padding: 2.5rem 0 2.5rem 0;
       border-bottom: none;
-      border-right: 0.5px solid var(--hairline);
+      border-right: 0.5px solid var(--hairline-strong);
+      padding-right: 2.5rem;
+      margin-top: 0;
     }
     .offering-item:last-child { border-right: none; padding-right: 0; }
     .offering-item:not(:first-child) { padding-left: 2.5rem; }
-    .offering-name { font-size: 1.8rem; }
     .offering-body { color: var(--warm-mid); }
-
-    .bespoke-section { padding: 5rem 3rem; }
-    .bespoke-statement { font-size: 2rem; }
 
     .single-session { padding: 5rem 3rem; }
     .single-session-headline { font-size: 2.8rem; }
 
     .about { padding: 5rem 3rem; }
-    .about-text { font-size: 1.15rem; }
+    .faq { padding: 3.5rem 3rem 5rem; }
 
-    .faq { padding: 4rem 3rem 6rem; }
-
-    .cta { padding: 7rem 3rem 5rem; }
+    .cta { padding: 6rem 3rem 4.5rem; }
     .cta-quote { font-size: 2.4rem; }
 
     .footer-line {
@@ -761,32 +733,25 @@
     }
   }
 
-  /* ── DESKTOP: 1100px and up ── */
+  /* DESKTOP: 1100px and up */
   @media (min-width: 1100px) {
     nav { padding: 1.4rem 4rem; }
 
-    .hero {
-      padding: 10rem 4rem 6rem;
-    }
-
+    .hero { padding: 8rem 4rem 4rem; }
     .hero-headline { font-size: 5.5rem; }
 
-    .recognition { padding: 7rem 4rem; }
-    .how { padding: 7rem 4rem; }
-    .offerings { padding: 7rem 4rem; }
-    .bespoke-statement { font-size: 2.2rem; }
-    .offering-name { font-size: 2rem; }
+    .recognition { padding: 6rem 4rem; }
+    .how { padding: 6rem 4rem; }
+    .how-bespoke { font-size: 2rem; }
+    .offerings { padding: 6rem 4rem; }
+    .offering-name { font-size: 2.2rem; }
 
-    .bespoke-section { padding: 7rem 4rem; }
-    .bespoke-statement { font-size: 2.4rem; }
-
-    .single-session { padding: 7rem 4rem; }
+    .single-session { padding: 6rem 4rem; }
     .single-session-headline { font-size: 3.4rem; }
-    .single-session-body { font-size: 1.18rem; }
 
-    .about { padding: 7rem 4rem; }
-    .faq { padding: 4rem 4rem 7rem; }
-    .cta { padding: 8rem 4rem 5rem; }
+    .about { padding: 6rem 4rem; }
+    .faq { padding: 4rem 4rem 6rem; }
+    .cta { padding: 7rem 4rem 5rem; }
     .cta-quote { font-size: 2.8rem; }
   }
 </style>
@@ -816,13 +781,12 @@
 
 <!-- 1. HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">Path 9</div>
   <h1 class="hero-headline">
     Success is not<br>the problem.<br>
     <em>The drift away<br>from yourself is.</em>
   </h1>
-  <div class="hero-divider"></div>
   <p class="hero-sub">Path 9 is a premium coaching practice for leaders ready to do the deeper work — and find their way back to what matters most.</p>
+  <p class="hero-why9">In ancient wisdom, 9 marks the threshold. The end of drift. The beginning of return.</p>
   <a class="hero-cta" href="#book">Begin with a conversation &nbsp;→</a>
 </section>
 
@@ -836,6 +800,7 @@
 <!-- 3. HOW WE WORK -->
 <section class="how">
   <div class="how-label">How we work</div>
+  <p class="how-bespoke">All engagements are built entirely around <em>your specific situation</em> — not a generic version of it.</p>
   <div class="how-phases">
     <div class="phase">
       <span class="phase-name">Reset.</span>
@@ -852,15 +817,11 @@
   </div>
 </section>
 
-<!-- 4. BESPOKE STATEMENT -->
-<section class="bespoke-section">
-  <p class="bespoke-statement">All engagements are built entirely around <em>your specific situation</em> — not a generic version of it.</p>
-</section>
-
-<!-- 5. WAYS TO WORK TOGETHER -->
+<!-- 4. WAYS TO WORK TOGETHER -->
 <section class="offerings">
   <div class="offerings-label">Ways to work together</div>
   <p class="offerings-intro">There are three ways to work with Path 9. Each is designed for a different moment — and a different kind of need.</p>
+  <div class="offerings-grid-rule"></div>
   <div class="offerings-grid">
 
     <div class="offering-item">
@@ -887,19 +848,18 @@
   </div>
 </section>
 
-<!-- 6. SINGLE SESSION — CLOSER LOOK -->
+<!-- 5. SINGLE SESSION — CLOSER LOOK -->
 <section class="single-session">
   <div class="single-session-label">A closer look</div>
   <h2 class="single-session-headline">
     The Single Session.<br>
     <em>One conversation. Complete in itself.</em>
   </h2>
-  <div class="single-session-divider"></div>
   <p class="single-session-body">There are moments — in work, in life, or at the intersection of both — that do not require a programme. A decision that needs a clear outside perspective. A situation that has become too complex to see from the inside. A conversation you cannot have with anyone currently in your world — because they are too close, too invested, or simply not equipped to hold it. The Single Session is that conversation.</p>
   <a class="ss-cta" href="#book">Begin with a conversation</a>
 </section>
 
-<!-- 7. ABOUT SANJEEV -->
+<!-- 6. ABOUT SANJEEV -->
 <section class="about">
   <div class="about-label-row">
     <span class="about-label">About</span>
@@ -909,14 +869,12 @@
       </svg>
     </a>
   </div>
-  <div class="about-content">
-    <p class="about-text">Sanjeev has spent decades working at the intersection of leadership, strategy, and human experience — alongside founders, directors, and senior leaders navigating complexity, transition, and the quiet friction that so often accompanies success.</p>
-    <p class="about-text">He has navigated it from the inside too. There was a point where everything looked right on the outside and felt misaligned on the inside. That experience — of living the drift, sitting with it honestly, and finding a way through — is what Path 9 was built from.</p>
-    <p class="about-text">That experience shaped the way he works. What makes him the right guide is not any single credential. It is the combination — of strategic rigour, real-world leadership experience, a coaching and mindfulness practice grounded in professional training, and a genuine understanding of what it costs to carry high responsibility over time.</p>
-  </div>
+  <p class="about-text">Sanjeev has spent decades working at the intersection of leadership, strategy, and human experience — alongside founders, directors, and senior leaders navigating complexity, transition, and the quiet friction that so often accompanies success.</p>
+  <p class="about-text">He has navigated it from the inside too. There was a point where everything looked right on the outside and felt misaligned on the inside. That experience — of living the drift, sitting with it honestly, and finding a way through — is what Path 9 was built from.</p>
+  <p class="about-text">That experience shaped the way he works. What makes him the right guide is not any single credential. It is the combination — of strategic rigour, real-world leadership experience, a coaching and mindfulness practice grounded in professional training, and a genuine understanding of what it costs to carry high responsibility over time.</p>
 </section>
 
-<!-- 8. FAQ ACCORDION -->
+<!-- 7. FAQ -->
 <section class="faq">
   <div class="faq-label">Questions</div>
 
@@ -962,16 +920,16 @@
 
 </section>
 
-<!-- 9. INK FOOTER -->
+<!-- 8. INK FOOTER -->
 <section class="cta" id="book">
-  <p class="cta-quote">"You do not need more advice.<br>You need a trusted guide."</p>
+  <p class="cta-quote">You do not need more advice.<br>You need a trusted guide.</p>
   <p class="cta-body">If you have read this far and something still resonates — that is worth following. A conversation is not a commitment.</p>
   <p class="cta-sub">Thirty minutes. A conversation, not a commitment.</p>
   <a class="cta-btn" href="YOUR_CALENDLY_LINK_HERE">Begin with a conversation</a>
   <div class="footer-line">
     <div class="footer-left">
       <span class="footer-tag">Reset. Reconnect. Realign. &nbsp;·&nbsp; onpath9.com</span>
-      <a class="footer-email" href="mailto:hello@onpath9.com">hello@onpath9.com</a>
+      <a class="footer-email" href="mailto:begin@onpath9.com">begin@onpath9.com</a>
       <span class="footer-copyright">© 2026 Path 9. All rights reserved.</span>
     </div>
     <div class="footer-social">
@@ -990,7 +948,6 @@
 </section>
 
 <script>
-  // FAQ ACCORDION
   (function() {
     document.querySelectorAll('.faq-toggle').forEach(toggle => {
       toggle.addEventListener('click', () => {
