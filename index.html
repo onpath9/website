@@ -113,7 +113,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 5rem 1.5rem 1rem;
+    padding: 5rem 1.5rem 0.5rem;
   }
 
   .hero-headline {
@@ -139,7 +139,7 @@
     line-height: 1.85;
     color: var(--body-mobile);
     margin-top: 2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.5s;
   }
@@ -182,7 +182,7 @@
   /* RECOGNITION */
   .recognition {
     background: var(--cream);
-    padding: 1rem 1.5rem 2.5rem;
+    padding: 0.5rem 1.5rem 2.5rem;
   }
 
   .nine-line {
@@ -485,6 +485,16 @@
 
   .about-text + .about-text { margin-top: 1.3rem; }
 
+  .about-signature {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--orange-deep);
+    margin-top: 1.8rem;
+    opacity: 0.85;
+  }
+
   /* TESTIMONIALS */
   .testimonials {
     background: var(--cream);
@@ -626,7 +636,7 @@
     transition: max-height 0.4s ease;
   }
 
-  .faq-item.open .faq-answer { max-height: 400px; }
+  .faq-item.open .faq-answer { max-height: 600px; }
 
   .faq-a {
     font-family: 'Cormorant Garamond', serif;
@@ -757,11 +767,11 @@
     nav { padding: 1.3rem 3rem; }
     .nav-cta { font-size: 10px; }
 
-    .hero { padding: 7rem 3rem 3.5rem; }
+    .hero { padding: 7rem 3rem 1rem; }
     .hero-headline { font-size: 4rem; }
     .hero-sub { color: var(--warm-mid); }
 
-    .recognition { padding: 5rem 3rem; }
+    .recognition { padding: 0.5rem 3rem 3rem; }
     .recognition p { color: var(--warm-mid); }
 
     .how { padding: 5rem 3rem; }
@@ -787,13 +797,14 @@
       column-gap: 0;
     }
     .offering-item {
-      padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+      padding: 2.5rem 2rem;
       border-bottom: none;
       border-right: 0.5px solid var(--hairline-strong);
       margin-top: 0;
     }
-    .offering-item:first-child { padding-left: 0; }
-    .offering-item:last-child { border-right: none; padding-right: 0; }
+    .offering-item:first-child { padding-left: 0; padding-right: 2rem; }
+    .offering-item:nth-child(2) { padding-left: 2rem; padding-right: 2rem; }
+    .offering-item:last-child { border-right: none; padding-right: 0; padding-left: 2rem; }
     .offering-body { color: var(--warm-mid); }
 
     .single-session { padding: 5rem 3rem; }
@@ -816,10 +827,10 @@
   @media (min-width: 1100px) {
     nav { padding: 1.4rem 4rem; }
 
-    .hero { padding: 8rem 4rem 4rem; }
+    .hero { padding: 8rem 4rem 1rem; }
     .hero-headline { font-size: 5.5rem; }
 
-    .recognition { padding: 6rem 4rem; }
+    .recognition { padding: 0.5rem 4rem 3rem; }
     .how { padding: 6rem 4rem; }
     .how-bespoke { font-size: 2rem; }
     .offerings { padding: 6rem 4rem; }
@@ -948,9 +959,10 @@
       </svg>
     </a>
   </div>
-  <p class="about-text">I have spent decades working at the intersection of leadership, strategy, and human experience — alongside founders, directors, and senior leaders navigating complexity, transition, and the quiet friction that so often accompanies success.</p>
+  <p class="about-text">I am Sanjeev Davidson. I have spent decades working at the intersection of leadership, strategy, and human experience — alongside founders, directors, and senior leaders navigating complexity, transition, and the quiet friction that so often accompanies success.</p>
   <p class="about-text">I have navigated it from the inside too. There was a point where everything looked right on the outside and felt misaligned on the inside. That experience — of living the drift, sitting with it honestly, and finding a way through — is what Path 9 was built from.</p>
   <p class="about-text">This work is grounded in decades of real leadership experience and a considered coaching and mindfulness practice. But what I bring above all is the understanding of what it truly costs to carry responsibility over time — and what it takes to find your way back to yourself within it.</p>
+  <p class="about-signature">Sanjeev</p>
 </section>
 
 <!-- 6b. TESTIMONIALS -->
@@ -984,7 +996,7 @@
       <span class="faq-icon" aria-hidden="true"></span>
     </button>
     <div class="faq-answer">
-      <p class="faq-a">Path 9 is coaching — forward-facing, practical, and built around your professional and personal goals. If you are unsure whether it is the right fit, a conversation is the right place to find out. For the Single Session, a fifteen minute call is enough to know. For the Four-Week Intensive and Signature Programme, thirty minutes.</p>
+      <p class="faq-a">Path 9 is coaching — forward-facing, practical, and built around your specific situation, not a generic version of it. If you are unsure whether it is the right fit, a conversation is the right place to find out. A fifteen minute call for the Single Session. Thirty minutes for either programme. Both begin the same way — with an honest conversation.</p>
     </div>
   </div>
 
@@ -994,7 +1006,7 @@
       <span class="faq-icon" aria-hidden="true"></span>
     </button>
     <div class="faq-answer">
-      <p class="faq-a">Real commitment. The work asks you to show up with honesty and to act on what you discover between sessions. The leaders who get the most from this process are those who are genuinely ready — not those who are merely curious.</p>
+      <p class="faq-a">Real commitment. It asks you to show up with honesty and to act on what you discover between sessions. The leaders who get the most from this are those who are genuinely ready — not those who are merely curious.</p>
     </div>
   </div>
 
@@ -1014,7 +1026,7 @@
       <span class="faq-icon" aria-hidden="true"></span>
     </button>
     <div class="faq-answer">
-      <p class="faq-a">It is a conversation, not a pitch. Thirty minutes — for those considering the Four-Week Intensive or Signature Programme — to understand where you are, what you are navigating, and whether Path 9 is the right fit for this moment. There is no obligation on either side. If it is not the right fit, you will leave the conversation with clarity regardless.</p>
+      <p class="faq-a">It is an honest conversation, not a pitch. Time to understand where you are, what you are navigating, and whether Path 9 is the right fit for this moment. There is no obligation on either side. If it is not the right fit, you will leave the conversation with clarity regardless.</p>
     </div>
   </div>
 
