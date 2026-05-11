@@ -113,7 +113,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 5rem 1.5rem 4rem;
+    padding: 5rem 1.5rem 1rem;
   }
 
   .hero-headline {
@@ -182,13 +182,21 @@
   /* RECOGNITION */
   .recognition {
     background: var(--cream);
-    padding: 3.5rem 1.5rem;
-    border-top: 0.5px solid var(--hairline-strong);
+    padding: 1rem 1.5rem 2.5rem;
+  }
+
+  .nine-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--warm-mid);
+    margin-top: 1.8rem;
   }
 
   .recognition p {
-    font-size: 1.2rem;
-    line-height: 1.9;
+    font-size: 1.05rem;
+    line-height: 1.85;
     color: var(--body-mobile);
     font-weight: 300;
   }
@@ -340,6 +348,15 @@
     margin-bottom: 1rem;
   }
 
+  .offering-engagement {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--warm-mid);
+    margin-top: 0.8rem;
+  }
+
   .offering-meta {
     font-family: 'DM Sans', sans-serif;
     font-size: 10px;
@@ -388,6 +405,16 @@
     line-height: 1.9;
     color: rgba(250,245,240,0.88);
     margin-bottom: 2.5rem;
+  }
+
+  .single-session-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(250,245,240,0.6);
+    margin-top: 1rem;
+    margin-bottom: 2rem;
   }
 
   .ss-cta {
@@ -457,6 +484,56 @@
   }
 
   .about-text + .about-text { margin-top: 1.3rem; }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    background: var(--cream);
+    padding: 3.5rem 1.5rem;
+    border-top: 0.5px solid var(--hairline-strong);
+  }
+
+  .testimonials-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--orange-deep);
+    opacity: 0.7;
+    margin-bottom: 2rem;
+  }
+
+  .testimonial-item {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 0.5px solid var(--hairline);
+  }
+
+  .testimonial-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: var(--body-mobile);
+    font-style: italic;
+    margin-bottom: 0.9rem;
+  }
+
+  .testimonial-attribution {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    opacity: 0.7;
+  }
 
   /* FAQ */
   .faq {
@@ -795,6 +872,7 @@
   <p>You are here because something no longer fits.</p>
   <p>Perhaps it is the pace — the relentless forward motion that has slowly disconnected you from why you started.</p>
   <p><span class="signal">This is not a crisis. It is a signal.</span> And it is worth paying attention to.</p>
+  <p class="nine-line">9. The final number before return. The moment between what has been and what becomes.</p>
 </section>
 
 <!-- 3. HOW WE WORK -->
@@ -841,7 +919,7 @@
     <div class="offering-item">
       <span class="offering-tag">Signature Programme</span>
       <span class="offering-name">The Signature Programme</span>
-      <p class="offering-body">The complete Path 9 experience. Seven sessions of structured depth — for those who are ready to do the deeper work and define what comes next with intention.</p>
+      <p class="offering-body">The complete Path 9 experience. Seven sessions of structured depth — moving through the full arc of Reset, Reconnect, and Realign. For those ready to define what comes next.</p>
       <span class="offering-meta">7 Sessions &nbsp;·&nbsp; 1:1 &nbsp;·&nbsp; Online or In Person</span>
     </div>
 
@@ -856,7 +934,8 @@
     <em>One conversation. Complete in itself.</em>
   </h2>
   <p class="single-session-body">There are moments — in work, in life, or at the intersection of both — that do not require a programme. A decision that needs a clear outside perspective. A situation that has become too complex to see from the inside. A conversation you cannot have with anyone currently in your world — because they are too close, too invested, or simply not equipped to hold it. The Single Session is that conversation.</p>
-  <a class="ss-cta" href="#book">Begin with a conversation</a>
+  <p class="single-session-sub">A fifteen minute chemistry call to ensure the Single Session is the right fit.</p>
+  <a class="ss-cta" href="YOUR_CALENDLY_LINK_HERE">Begin with a conversation</a>
 </section>
 
 <!-- 6. ABOUT SANJEEV -->
@@ -869,9 +948,30 @@
       </svg>
     </a>
   </div>
-  <p class="about-text">Sanjeev has spent decades working at the intersection of leadership, strategy, and human experience — alongside founders, directors, and senior leaders navigating complexity, transition, and the quiet friction that so often accompanies success.</p>
-  <p class="about-text">He has navigated it from the inside too. There was a point where everything looked right on the outside and felt misaligned on the inside. That experience — of living the drift, sitting with it honestly, and finding a way through — is what Path 9 was built from.</p>
-  <p class="about-text">That experience shaped the way he works. What makes him the right guide is not any single credential. It is the combination — of strategic rigour, real-world leadership experience, a coaching and mindfulness practice grounded in professional training, and a genuine understanding of what it costs to carry high responsibility over time.</p>
+  <p class="about-text">I have spent decades working at the intersection of leadership, strategy, and human experience — alongside founders, directors, and senior leaders navigating complexity, transition, and the quiet friction that so often accompanies success.</p>
+  <p class="about-text">I have navigated it from the inside too. There was a point where everything looked right on the outside and felt misaligned on the inside. That experience — of living the drift, sitting with it honestly, and finding a way through — is what Path 9 was built from.</p>
+  <p class="about-text">This work is grounded in decades of real leadership experience and a considered coaching and mindfulness practice. But what I bring above all is the understanding of what it truly costs to carry responsibility over time — and what it takes to find your way back to yourself within it.</p>
+</section>
+
+<!-- 6b. TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-label">What clients say</div>
+
+  <div class="testimonial-item">
+    <p class="testimonial-quote">"What really sets you apart is your focus on balance and living a fulfilling life. It's not every day you get a coach with such extensive industry experience who focuses so heavily on personal growth and grounding."</p>
+    <span class="testimonial-attribution">Director, London</span>
+  </div>
+
+  <div class="testimonial-item">
+    <p class="testimonial-quote">"What I gained cannot be read from books. Lived experience — not just a person reading a textbook."</p>
+    <span class="testimonial-attribution">Founder, London</span>
+  </div>
+
+  <div class="testimonial-item">
+    <p class="testimonial-quote">"There was a point where I questioned everything — whether we were on the right track, whether what we had built was truly enough. Sanjeev helped me see clearly again. He reminded me why I started, and what it was actually for."</p>
+    <span class="testimonial-attribution">CEO</span>
+  </div>
+
 </section>
 
 <!-- 7. FAQ -->
@@ -884,7 +984,7 @@
       <span class="faq-icon" aria-hidden="true"></span>
     </button>
     <div class="faq-answer">
-      <p class="faq-a">Path 9 is coaching — forward-facing, practical, and built around your professional and personal goals. If you are unsure whether it is the right fit, a conversation is the right place to find out. Thirty minutes is enough to know.</p>
+      <p class="faq-a">Path 9 is coaching — forward-facing, practical, and built around your professional and personal goals. If you are unsure whether it is the right fit, a conversation is the right place to find out. For the Single Session, a fifteen minute call is enough to know. For the Four-Week Intensive and Signature Programme, thirty minutes.</p>
     </div>
   </div>
 
@@ -900,11 +1000,11 @@
 
   <div class="faq-item">
     <button class="faq-toggle" aria-expanded="false">
-      <span class="faq-q">I have never worked with a coach before. Is that a problem?</span>
+      <span class="faq-q">Does prior coaching experience matter?</span>
       <span class="faq-icon" aria-hidden="true"></span>
     </button>
     <div class="faq-answer">
-      <p class="faq-a">Not at all. What matters is not prior experience of coaching — it is a genuine readiness to do the work. If something here has resonated, that readiness is probably already present.</p>
+      <p class="faq-a">Not at all. What matters is not prior experience — it is a genuine readiness to look honestly at where you are and what needs to change. If something here has resonated, that readiness is already present.</p>
     </div>
   </div>
 
@@ -914,17 +1014,7 @@
       <span class="faq-icon" aria-hidden="true"></span>
     </button>
     <div class="faq-answer">
-      <p class="faq-a">It is a conversation, not a pitch. Thirty minutes to understand where you are, what you are navigating, and whether Path 9 is the right fit for this moment. There is no obligation on either side. If it is not the right fit, you will leave the conversation with clarity regardless.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-toggle" aria-expanded="false">
-      <span class="faq-q">Is there a reason for the name?</span>
-      <span class="faq-icon" aria-hidden="true"></span>
-    </button>
-    <div class="faq-answer">
-      <p class="faq-a">In many ancient traditions — across cultures that had no contact with one another — nine marks the final number before return. The end of a cycle. The moment between what has been and what becomes.</p>
+      <p class="faq-a">It is a conversation, not a pitch. Thirty minutes — for those considering the Four-Week Intensive or Signature Programme — to understand where you are, what you are navigating, and whether Path 9 is the right fit for this moment. There is no obligation on either side. If it is not the right fit, you will leave the conversation with clarity regardless.</p>
     </div>
   </div>
 
@@ -938,7 +1028,7 @@
   <a class="cta-btn" href="YOUR_CALENDLY_LINK_HERE">Begin with a conversation</a>
   <div class="footer-line">
     <div class="footer-left">
-      <span class="footer-tag">Reset. Reconnect. Realign. &nbsp;·&nbsp; onpath9.com</span>
+      <span class="footer-tag">Reset. Reconnect. Realign.</span>
       <a class="footer-email" href="mailto:begin@onpath9.com">begin@onpath9.com</a>
       <span class="footer-copyright">© 2026 Path 9. All rights reserved.</span>
     </div>
