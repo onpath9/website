@@ -203,9 +203,34 @@
 
   .recognition p + p { margin-top: 1.4rem; }
 
-  .recognition .signal {
+  .recognition .signal,
+  .signal-section .signal {
     font-style: italic;
     color: var(--orange);
+  }
+
+  /* SIGNAL SECTION */
+  .signal-section {
+    background: var(--cream);
+    padding: 2.5rem 1.5rem;
+    border-top: 0.5px solid var(--hairline-strong);
+  }
+
+  .signal-pace {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--body-mobile);
+    font-weight: 300;
+  }
+
+  .signal-crisis {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--body-mobile);
+    font-weight: 300;
+    margin-top: 1.4rem;
   }
 
   /* HOW WE WORK */
@@ -772,6 +797,7 @@
     .hero-sub { color: var(--warm-mid); }
 
     .recognition { padding: 0.5rem 3rem 3rem; }
+    .signal-section { padding: 2.5rem 3rem; }
     .recognition p { color: var(--warm-mid); }
 
     .how { padding: 5rem 3rem; }
@@ -831,6 +857,7 @@
     .hero-headline { font-size: 5.5rem; }
 
     .recognition { padding: 0.5rem 4rem 3rem; }
+    .signal-section { padding: 2.5rem 4rem; }
     .how { padding: 6rem 4rem; }
     .how-bespoke { font-size: 2rem; }
     .offerings { padding: 6rem 4rem; }
@@ -875,14 +902,18 @@
     Success is not<br>the problem.<br>
     <em>The drift away<br>from yourself is.</em>
   </h1>
-  <p class="hero-sub">Path 9 is a premium coaching practice for leaders ready to do the deeper work — and find their way back to what matters most.</p>
+  <p class="hero-sub">Path 9 is a coaching practice for leaders ready to do the deeper work — and find their way back to what matters most.</p>
 </section>
 
 <!-- 2. RECOGNITION -->
 <section class="recognition">
   <p>You are here because something no longer fits.</p>
-  <p>Perhaps it is the pace — the relentless forward motion that has slowly disconnected you from why you started.</p>
-  <p><span class="signal">This is not a crisis. It is a signal.</span> And it is worth paying attention to.</p>
+</section>
+
+<!-- 2b. SIGNAL -->
+<section class="signal-section">
+  <p class="signal-pace">Perhaps it is the pace — the relentless forward motion that has slowly disconnected you from why you started.</p>
+  <p class="signal-crisis"><span class="signal">This is not a crisis. It is a signal.</span><span style="color:var(--body-mobile)"> And it is worth paying attention to.</span></p>
   <p class="nine-line">9. The final number before return. The moment between what has been and what becomes.</p>
 </section>
 
@@ -945,7 +976,7 @@
     <em>One conversation. Complete in itself.</em>
   </h2>
   <p class="single-session-body">There are moments — in work, in life, or at the intersection of both — that do not require a programme. A decision that needs a clear outside perspective. A situation that has become too complex to see from the inside. A conversation you cannot have with anyone currently in your world — because they are too close, too invested, or simply not equipped to hold it. The Single Session is that conversation.</p>
-  <p class="single-session-sub">A fifteen minute chemistry call to ensure the Single Session is the right fit.</p>
+  <p class="single-session-sub">A fifteen minute conversation to ensure the Single Session is the right fit.</p>
   <a class="ss-cta" href="YOUR_CALENDLY_LINK_HERE">Begin with a conversation</a>
 </section>
 
@@ -959,7 +990,7 @@
       </svg>
     </a>
   </div>
-  <p class="about-text">I am Sanjeev Davidson. I have spent decades working at the intersection of leadership, strategy, and human experience — alongside founders, directors, and senior leaders navigating complexity, transition, and the quiet friction that so often accompanies success.</p>
+  <p class="about-text">I have spent decades working at the intersection of leadership, strategy, and human experience — alongside founders, directors, and senior leaders navigating complexity, transition, and the quiet friction that so often accompanies success.</p>
   <p class="about-text">I have navigated it from the inside too. There was a point where everything looked right on the outside and felt misaligned on the inside. That experience — of living the drift, sitting with it honestly, and finding a way through — is what Path 9 was built from.</p>
   <p class="about-text">This work is grounded in decades of real leadership experience and a considered coaching and mindfulness practice. But what I bring above all is the understanding of what it truly costs to carry responsibility over time — and what it takes to find your way back to yourself within it.</p>
   <p class="about-signature">Sanjeev</p>
@@ -975,13 +1006,13 @@
   </div>
 
   <div class="testimonial-item">
-    <p class="testimonial-quote">"What I gained cannot be read from books. Lived experience — not just a person reading a textbook."</p>
-    <span class="testimonial-attribution">Founder, London</span>
+    <p class="testimonial-quote">"I was at a point where I had almost stopped believing in what I was doing. Sanjeev didn't just help me see a way forward — he helped me remember why it mattered in the first place."</p>
+    <span class="testimonial-attribution">Founder, Paris</span>
   </div>
 
   <div class="testimonial-item">
     <p class="testimonial-quote">"There was a point where I questioned everything — whether we were on the right track, whether what we had built was truly enough. Sanjeev helped me see clearly again. He reminded me why I started, and what it was actually for."</p>
-    <span class="testimonial-attribution">CEO</span>
+    <span class="testimonial-attribution">CEO, Bali</span>
   </div>
 
 </section>
@@ -1016,7 +1047,7 @@
       <span class="faq-icon" aria-hidden="true"></span>
     </button>
     <div class="faq-answer">
-      <p class="faq-a">Not at all. What matters is not prior experience — it is a genuine readiness to look honestly at where you are and what needs to change. If something here has resonated, that readiness is already present.</p>
+      <p class="faq-a">Not at all. What matters is a genuine readiness to look honestly at what is no longer working. If something here has resonated, that readiness is already present.</p>
     </div>
   </div>
 
