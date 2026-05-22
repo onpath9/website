@@ -42,9 +42,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.1rem 1.5rem;
+    padding: 1.1rem 1.2rem;
     background: var(--cream);
     border-bottom: 0.5px solid var(--hairline);
+    gap: 0.5rem;
   }
 
   .nav-brand {
@@ -55,18 +56,21 @@
     text-transform: uppercase;
     color: var(--orange);
     text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .nav-right {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    gap: 0.9rem;
+    flex-shrink: 0;
   }
 
   .nav-social {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.7rem;
   }
 
   .nav-social a {
@@ -91,6 +95,7 @@
     width: 0.5px;
     height: 14px;
     background: var(--hairline);
+    display: none;
   }
 
   .nav-cta {
@@ -823,6 +828,10 @@
 
   /* NARROW PHONES: below 360px (iPhone SE 1st gen, older Androids) */
   @media (max-width: 359px) {
+    nav { padding: 1.1rem 1rem; gap: 0.4rem; }
+    .nav-right { gap: 0.7rem; }
+    .nav-social { gap: 0.5rem; }
+    .nav-cta { font-size: 10px; letter-spacing: 0.12em; }
     .hero-headline { font-size: 2.6rem; }
     .single-session-headline { font-size: 1.95rem; }
     .offering-name { font-size: 1.95rem; }
@@ -834,6 +843,9 @@
   @media (min-width: 768px) {
     nav { padding: 1.3rem 3rem; }
     .nav-cta { font-size: 12px; }
+    .nav-divider { display: block; }
+    .nav-right { gap: 1.2rem; }
+    .nav-social { gap: 1rem; }
 
     .hero { padding: 7rem 3rem 1rem; }
     .hero-headline { font-size: 4rem; }
