@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Path 9 — Updated 25 May 2026 — VS01 -->
+<!-- Path 9 — Updated 25 May 2026 — VS03 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -340,12 +340,15 @@
     margin-bottom: 0;
   }
 
-  .offering-item {
-    padding: 2rem 0;
+  .offering-block {
     border-bottom: 0.5px solid var(--hairline-strong);
   }
 
-  .offering-item:last-child { border-bottom: none; }
+  .offering-block:last-child { border-bottom: none; }
+
+  .offering-item {
+    padding: 2rem 0;
+  }
 
   .offering-tag {
     font-family: 'DM Sans', sans-serif;
@@ -421,37 +424,31 @@
     padding: 3.5rem 1.5rem;
   }
 
-  /* CLOSER LOOK ACCORDION PANELS */
+  /* CLOSER LOOK ACCORDION PANELS — inline within each offering-block */
   .closer-look-panels {
     background: var(--cream);
+  }
+
+  .offering-block {
+    /* Each card + its closer-look panel sit together */
   }
 
   .closer-panel {
     background: var(--cream);
     overflow: hidden;
     max-height: 0;
-    transition: max-height 0.5s ease, padding 0.4s ease;
-    padding: 0 1.5rem;
-    border-top: 0.5px solid var(--hairline);
+    transition: max-height 0.55s ease;
   }
 
-  .closer-panel[hidden] {
-    display: block !important;
-    max-height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    border-top: 0;
-  }
-
-  .closer-panel.is-open {
+  .closer-panel[aria-hidden="false"] {
     max-height: 4000px;
-    padding: 3rem 1.5rem 3.5rem;
-    border-top: 0.5px solid var(--hairline);
   }
 
   .closer-panel-inner {
     max-width: 720px;
     margin: 0 auto;
+    padding: 1rem 1.5rem 3rem;
+    border-top: 0.5px dashed var(--hairline);
   }
 
   /* Button styling for offering-link (accordion toggle) — matches link style */
@@ -476,6 +473,29 @@
     content: ' −';
   }
 
+  /* Close link inside panel — bottom of panel, discoverable */
+  button.closer-close {
+    background: none;
+    border: none;
+    padding: 0 0 3px 0;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--warm-mid);
+    text-align: left;
+    border-bottom: 1px solid var(--hairline);
+    margin-top: 1rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  button.closer-close:hover {
+    color: var(--orange);
+    border-color: var(--orange);
+  }
+
   .single-session-label {
     font-family: 'DM Sans', sans-serif;
     font-size: 15px;
@@ -489,8 +509,8 @@
   .single-session-headline {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
-    font-size: 2.2rem;
-    line-height: 1.12;
+    font-size: 1.7rem;
+    line-height: 1.18;
     color: var(--body-mobile);
     margin-bottom: 1.5rem;
   }
@@ -888,7 +908,7 @@
     .nav-social { gap: 0.5rem; }
     .nav-cta { font-size: 10px; letter-spacing: 0.12em; }
     .hero-headline { font-size: 2.6rem; }
-    .single-session-headline { font-size: 1.95rem; }
+    .single-session-headline { font-size: 1.55rem; }
     .offering-name { font-size: 1.95rem; }
     .phase-name { font-size: 1.95rem; }
     .cta-quote { font-size: 1.95rem; }
@@ -929,18 +949,34 @@
       gap: 0;
       column-gap: 0;
     }
-    .offering-item {
-      padding: 2.5rem 2rem;
+    .offering-block {
       border-bottom: none;
       border-right: 0.5px solid var(--hairline-strong);
+      transition: grid-column 0.3s ease;
+    }
+    .offering-block:last-of-type { border-right: none; }
+    .offering-item {
+      padding: 2.5rem 2rem;
       margin-top: 0;
     }
-    .offering-item:first-child { padding-left: 0; padding-right: 2rem; }
-    .offering-item:nth-child(2) { padding-left: 2rem; padding-right: 2rem; }
-    .offering-item:last-child { border-right: none; padding-right: 0; padding-left: 2rem; }
+    .offering-block:first-of-type .offering-item { padding-left: 0; padding-right: 2rem; }
+    .offering-block:nth-of-type(2) .offering-item { padding-left: 2rem; padding-right: 2rem; }
+    .offering-block:last-of-type .offering-item { padding-right: 0; padding-left: 2rem; }
+
+    /* When an offering-block has an open panel, it spans the full grid row */
+    .offering-block:has(.closer-panel[aria-hidden="false"]) {
+      grid-column: 1 / -1;
+      border-right: none;
+    }
+    .offering-block:has(.closer-panel[aria-hidden="false"]) .offering-item {
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 720px;
+      margin: 0 auto;
+    }
 
     .single-session { padding: 5rem 3rem; }
-    .single-session-headline { font-size: 2.8rem; }
+    .single-session-headline { font-size: 2rem; }
     .org-themes {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -976,7 +1012,7 @@
     .offering-name { font-size: 2.2rem; }
 
     .single-session { padding: 6rem 4rem; }
-    .single-session-headline { font-size: 3.4rem; }
+    .single-session-headline { font-size: 2.3rem; }
 
     .about { padding: 6rem 4rem; }
     .about-photo { width: 160px; height: 160px; }
@@ -1051,89 +1087,82 @@
   <div class="offerings-grid-rule"></div>
   <div class="offerings-grid">
 
-    <div class="offering-item">
-      <span class="offering-name">The Single Session</span>
-      <p class="offering-body">One dedicated conversation for those navigating a specific decision, situation, or crossroads that requires a trusted outside perspective. Complete in itself.</p>
-      <span class="offering-meta">90 Minutes &nbsp;·&nbsp; 1:1 &nbsp;·&nbsp; Online or In Person</span>
-      <button class="offering-link offering-toggle" data-target="single-session-detail" aria-expanded="false" aria-controls="single-session-detail">A closer look</button>
+    <!-- Offering 1: Single Session -->
+    <div class="offering-block">
+      <div class="offering-item">
+        <span class="offering-name">The Single Session</span>
+        <p class="offering-body">For a specific decision, situation, or crossroads that calls for a trusted outside perspective.</p>
+        <span class="offering-meta">90 Minutes &nbsp;·&nbsp; 1:1 &nbsp;·&nbsp; Online or In Person</span>
+        <button class="offering-link offering-toggle" data-target="single-session-detail" aria-expanded="false" aria-controls="single-session-detail">A closer look</button>
+      </div>
+      <div class="closer-panel" id="single-session-detail" role="region" aria-hidden="true">
+        <div class="closer-panel-inner">
+          <h2 class="single-session-headline">
+            The Single Session.<br>
+            <em>One conversation. Complete in itself.</em>
+          </h2>
+          <p class="single-session-body">There are moments — in work, in life, or at the intersection of both — that call for a single conversation. A decision that needs a clear outside perspective. A situation that has become too complex to see from the inside. A conversation you cannot have with anyone currently in your world — because they are too close, too invested, or simply not equipped to hold it. The Single Session is that conversation.</p>
+          <p class="single-session-sub"><a class="discovery-link" href="#calendly-pending">A 30-minute conversation</a> to ensure the Single Session is the right fit.</p>
+          <button class="closer-close" data-target="single-session-detail">Close</button>
+        </div>
+      </div>
     </div>
 
-    <div class="offering-item">
-      <span class="offering-name">The Arc</span>
-      <p class="offering-body">A structured journey through the full arc — Reset, Reconnect, Realign. Two sessions within each phase, allowing depth before moving to what comes next.</p>
-      <span class="offering-meta">6 Sessions &nbsp;·&nbsp; 60 Minutes Each &nbsp;·&nbsp; 1:1 &nbsp;·&nbsp; Online or In Person</span>
-      <button class="offering-link offering-toggle" data-target="arc-detail" aria-expanded="false" aria-controls="arc-detail">A closer look</button>
+    <!-- Offering 2: The Arc -->
+    <div class="offering-block">
+      <div class="offering-item">
+        <span class="offering-name">The Arc</span>
+        <p class="offering-body">For the work beneath the work. Six sessions through Reset, Reconnect, Realign — two within each phase, allowing depth before moving to what comes next.</p>
+        <span class="offering-meta">6 Sessions &nbsp;·&nbsp; 60 Minutes Each &nbsp;·&nbsp; 1:1 &nbsp;·&nbsp; Online or In Person</span>
+        <button class="offering-link offering-toggle" data-target="arc-detail" aria-expanded="false" aria-controls="arc-detail">A closer look</button>
+      </div>
+      <div class="closer-panel" id="arc-detail" role="region" aria-hidden="true">
+        <div class="closer-panel-inner">
+          <h2 class="single-session-headline">
+            The Arc.<br>
+            <em>Reset. Reconnect. Realign.</em>
+          </h2>
+          <p class="single-session-body">Deeper work asks for shape and stages. Each phase holds two sessions, giving the work the room it needs before moving to what comes next.</p>
+          <p class="single-session-body">Reset begins where you actually are — not where the role, the responsibilities, or the inherited expectations say you should be. We name the drift, the friction, the quiet erosion that has brought you here. Reconnect returns you to what genuinely matters — your values, your voice, your sense of self beneath the title and the track record. Realign is where it becomes practical — a sustainable path forward, grounded in who you are rather than who you have been performing as.</p>
+          <p class="single-session-body">The Arc holds the work at the depth it asks for.</p>
+          <p class="single-session-sub"><a class="discovery-link" href="#calendly-pending">A 30-minute conversation</a> to ensure The Arc is the right fit.</p>
+          <button class="closer-close" data-target="arc-detail">Close</button>
+        </div>
+      </div>
     </div>
 
-    <div class="offering-item">
-      <span class="offering-name">Path 9 for Organisations</span>
-      <p class="offering-body">For founders, executives, and leadership teams holding the weight of the organisation. The work is bespoke — for the leader, for the team, or for both.</p>
-      <span class="offering-meta">Bespoke &nbsp;·&nbsp; Individual or Team &nbsp;·&nbsp; Online or In Person</span>
-      <button class="offering-link offering-toggle" data-target="organisations-detail" aria-expanded="false" aria-controls="organisations-detail">A closer look</button>
+    <!-- Offering 3: Organisations -->
+    <div class="offering-block">
+      <div class="offering-item">
+        <span class="offering-name">Path 9 for Organisations</span>
+        <p class="offering-body">For the weight that sits across a team, a leadership group, or a company. The work is bespoke — for the leader, for the team, or for both.</p>
+        <span class="offering-meta">Bespoke &nbsp;·&nbsp; Individual or Team &nbsp;·&nbsp; Online or In Person</span>
+        <button class="offering-link offering-toggle" data-target="organisations-detail" aria-expanded="false" aria-controls="organisations-detail">A closer look</button>
+      </div>
+      <div class="closer-panel" id="organisations-detail" role="region" aria-hidden="true">
+        <div class="closer-panel-inner">
+          <h2 class="single-session-headline">
+            Path 9 for Organisations.<br>
+            <em>For the people who hold the weight of the organisation.</em>
+          </h2>
+          <p class="single-session-body">Founders. Directors. The C-suite. The pressure at this level is different — and so is the kind of support it requires.</p>
+          <p class="single-session-body">Path 9 for Organisations is not a packaged corporate offering. It is built around the specific moment your organisation, or the leaders within it, are navigating. Engagements take shape in three ways — bespoke team work, ongoing one-to-one coaching, and in-person residencies — and most clients move fluidly between them.</p>
+          <p class="single-session-body themes-heading">Main themes:</p>
+          <ul class="org-themes">
+            <li>Leadership under pressure</li>
+            <li>Decision fatigue</li>
+            <li>The loneliness of senior leadership</li>
+            <li>Conflict at the top of the organisation</li>
+            <li>Succession, continuity, and legacy</li>
+            <li>Executive transition and reinvention</li>
+          </ul>
+          <p class="single-session-sub"><a class="discovery-link" href="#calendly-pending">A 30-minute conversation</a> to explore what would serve you and your organisation.</p>
+          <button class="closer-close" data-target="organisations-detail">Close</button>
+        </div>
+      </div>
     </div>
 
   </div>
-</section>
-
-<!-- 5. CLOSER LOOK — ACCORDION PANELS -->
-<section class="closer-look-panels">
-
-  <!-- 5a. SINGLE SESSION — CLOSER LOOK -->
-  <div class="closer-panel" id="single-session-detail" role="region" aria-labelledby="single-session-toggle" hidden>
-    <div class="closer-panel-inner">
-      <div class="single-session-label">A closer look</div>
-      <h2 class="single-session-headline">
-        The Single Session.<br>
-        <em>One conversation. Complete in itself.</em>
-      </h2>
-      <p class="single-session-body">There are moments — in work, in life, or at the intersection of both — that call for a single conversation. A decision that needs a clear outside perspective. A situation that has become too complex to see from the inside. A conversation you cannot have with anyone currently in your world — because they are too close, too invested, or simply not equipped to hold it. The Single Session is that conversation.</p>
-      <p class="single-session-sub"><a class="discovery-link" href="#calendly-pending">A 30-minute conversation</a> to ensure the Single Session is the right fit.</p>
-    </div>
-  </div>
-
-  <!-- 5b. THE ARC — CLOSER LOOK -->
-  <div class="closer-panel" id="arc-detail" role="region" aria-labelledby="arc-toggle" hidden>
-    <div class="closer-panel-inner">
-      <div class="single-session-label">A closer look</div>
-      <h2 class="single-session-headline">
-        The Arc.<br>
-        <em>Reset. Reconnect. Realign.</em>
-      </h2>
-      <p class="single-session-body">Deeper work asks for shape and stages. Each phase holds two sessions, giving the work the room it needs before moving to what comes next.</p>
-      <p class="single-session-body">Reset begins where you actually are — not where the role, the responsibilities, or the inherited expectations say you should be. We name the drift, the friction, the quiet erosion that has brought you here. Reconnect returns you to what genuinely matters — your values, your voice, your sense of self beneath the title and the track record. Realign is where it becomes practical — a sustainable path forward, grounded in who you are rather than who you have been performing as.</p>
-      <p class="single-session-body">The Arc holds the work at the depth it asks for.</p>
-      <p class="single-session-sub"><a class="discovery-link" href="#calendly-pending">A 30-minute conversation</a> to ensure The Arc is the right fit.</p>
-    </div>
-  </div>
-
-  <!-- 5c. PATH 9 FOR ORGANISATIONS — CLOSER LOOK -->
-  <div class="closer-panel" id="organisations-detail" role="region" aria-labelledby="organisations-toggle" hidden>
-    <div class="closer-panel-inner">
-      <div class="single-session-label">A closer look</div>
-      <h2 class="single-session-headline">
-        Path 9 for Organisations.<br>
-        <em>For the people who hold the weight of the organisation.</em>
-      </h2>
-      <p class="single-session-body">Founders. Directors. C-Suites. The pressure at this level is different — and so is the kind of support it requires.</p>
-      <p class="single-session-body">Path 9 for Organisations is not a packaged corporate offering. It is built around the specific moment your organisation, or the leaders within it, are navigating. Engagements take shape in three ways — bespoke team work, ongoing one-to-one coaching, and in-person residencies — and most clients move fluidly between them.</p>
-      <p class="single-session-body themes-heading">Main themes:</p>
-      <ul class="org-themes">
-        <li>Leadership under pressure</li>
-        <li>Navigating uncertainty</li>
-        <li>Preserving culture through change</li>
-        <li>Succession, continuity and legacy</li>
-        <li>Executive transition and reinvention</li>
-        <li>Ethical leadership in practice</li>
-      </ul>
-      <p class="single-session-body themes-heading">Specialist work:</p>
-      <ul class="org-themes">
-        <li>The loneliness of senior leadership</li>
-        <li>Mindfulness-led leadership</li>
-      </ul>
-      <p class="single-session-sub"><a class="discovery-link" href="#calendly-pending">A 30-minute conversation</a> to explore what would serve you and your organisation.</p>
-    </div>
-  </div>
-
 </section>
 
 <!-- 6. ABOUT SANJEEV -->
@@ -1174,16 +1203,6 @@
 
   <div class="faq-item">
     <button class="faq-toggle" aria-expanded="false">
-      <span class="faq-q">Is this the right kind of support for me?</span>
-      <span class="faq-icon" aria-hidden="true"></span>
-    </button>
-    <div class="faq-answer">
-      <p class="faq-a">Path 9 is human-first coaching — forward-facing, practical, and built around your specific situation, not a generic version of it. If you are unsure whether it is the right fit, a conversation is the right place to find out.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-toggle" aria-expanded="false">
       <span class="faq-q">What kind of commitment does this require?</span>
       <span class="faq-icon" aria-hidden="true"></span>
     </button>
@@ -1198,7 +1217,7 @@
       <span class="faq-icon" aria-hidden="true"></span>
     </button>
     <div class="faq-answer">
-      <p class="faq-a">Path 9 for Organisations is built for exactly this — whether the engagement is for you, your team, or the leadership group around you. Each takes shape around what you or the organisation is navigating, drawing on four formats — bespoke team work, themed mindfulness sessions, ongoing one-to-one coaching, and in-person residencies.</p>
+      <p class="faq-a">Path 9 for Organisations is built for exactly this — whether the engagement is for you, your team, or the leadership group around you. Each takes shape around what you or the organisation is navigating, drawing on three formats — bespoke team work, ongoing one-to-one coaching, and in-person residencies.</p>
     </div>
   </div>
 
@@ -1219,6 +1238,26 @@
     </button>
     <div class="faq-answer">
       <p class="faq-a">Path 9 sits at the senior end of the coaching market. Each engagement is shaped by what the work asks for — and pricing is discussed in our first conversation.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-toggle" aria-expanded="false">
+      <span class="faq-q">The ethics of the practice.</span>
+      <span class="faq-icon" aria-hidden="true"></span>
+    </button>
+    <div class="faq-answer">
+      <p class="faq-a">Each year, time is held for NGOs, social enterprises, and charities.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-toggle" aria-expanded="false">
+      <span class="faq-q">Why &ldquo;Path 9&rdquo;?</span>
+      <span class="faq-icon" aria-hidden="true"></span>
+    </button>
+    <div class="faq-answer">
+      <p class="faq-a">In ancient wisdom, 9 is the number of completion and threshold — the point where one form ends and another begins. Path 9 is named for that meeting place, where what has brought you here is honoured, and what comes next becomes possible.</p>
     </div>
   </div>
 
@@ -1258,41 +1297,75 @@
   })();
 </script>
 
-<!-- Closer Look accordion -->
+<!-- Closer Look accordion — inline expand within each offering-block -->
 <script>
 (function () {
-  var toggles = document.querySelectorAll('.offering-toggle');
-  toggles.forEach(function (btn) {
+  var NAV_OFFSET = 80; // adjust if fixed nav height changes
+
+  function closePanel(panel, toggle) {
+    panel.setAttribute('aria-hidden', 'true');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  function openPanel(panel, toggle) {
+    panel.setAttribute('aria-hidden', 'false');
+    if (toggle) toggle.setAttribute('aria-expanded', 'true');
+
+    // Scroll the offering card into comfortable view so the reader
+    // sees both the card and the panel opening beneath it.
+    setTimeout(function () {
+      var block = toggle.closest('.offering-block');
+      if (!block) return;
+      var rect = block.getBoundingClientRect();
+      var targetY = window.pageYOffset + rect.top - NAV_OFFSET;
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+    }, 50);
+  }
+
+  // Toggle buttons on the offering cards
+  document.querySelectorAll('.offering-toggle').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var targetId = btn.getAttribute('data-target');
       var panel = document.getElementById(targetId);
       if (!panel) return;
-      var isOpen = panel.classList.contains('is-open');
 
-      // Close any other open panel
-      document.querySelectorAll('.closer-panel.is-open').forEach(function (p) {
+      var isOpen = panel.getAttribute('aria-hidden') === 'false';
+
+      // Close any other open panels first
+      document.querySelectorAll('.closer-panel[aria-hidden="false"]').forEach(function (p) {
         if (p !== panel) {
-          p.classList.remove('is-open');
-          p.setAttribute('hidden', '');
           var otherBtn = document.querySelector('.offering-toggle[data-target="' + p.id + '"]');
-          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          closePanel(p, otherBtn);
         }
       });
 
       if (isOpen) {
-        panel.classList.remove('is-open');
-        panel.setAttribute('hidden', '');
-        btn.setAttribute('aria-expanded', 'false');
+        closePanel(panel, btn);
       } else {
-        panel.removeAttribute('hidden');
-        // Force reflow so the transition runs
-        void panel.offsetHeight;
-        panel.classList.add('is-open');
-        btn.setAttribute('aria-expanded', 'true');
-        // Scroll the panel into comfortable view
-        setTimeout(function () {
-          panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 200);
+        openPanel(panel, btn);
+      }
+    });
+  });
+
+  // Close buttons inside each panel
+  document.querySelectorAll('.closer-close').forEach(function (closeBtn) {
+    closeBtn.addEventListener('click', function () {
+      var targetId = closeBtn.getAttribute('data-target');
+      var panel = document.getElementById(targetId);
+      var toggle = document.querySelector('.offering-toggle[data-target="' + targetId + '"]');
+      if (!panel) return;
+
+      closePanel(panel, toggle);
+
+      // Return the reader to the card they came from
+      if (toggle) {
+        var block = toggle.closest('.offering-block');
+        if (block) {
+          var rect = block.getBoundingClientRect();
+          var targetY = window.pageYOffset + rect.top - NAV_OFFSET;
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+        }
+        toggle.focus({ preventScroll: true });
       }
     });
   });
