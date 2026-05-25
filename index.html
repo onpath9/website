@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Path 9 — Updated 19 May 2026 — VS02 -->
+<!-- Path 9 — Updated 25 May 2026 — VS01 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -417,8 +417,63 @@
 
   /* CLOSER LOOK SECTIONS */
   .single-session {
-    background: var(--orange-pale);
+    background: var(--cream);
     padding: 3.5rem 1.5rem;
+  }
+
+  /* CLOSER LOOK ACCORDION PANELS */
+  .closer-look-panels {
+    background: var(--cream);
+  }
+
+  .closer-panel {
+    background: var(--cream);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease, padding 0.4s ease;
+    padding: 0 1.5rem;
+    border-top: 0.5px solid var(--hairline);
+  }
+
+  .closer-panel[hidden] {
+    display: block !important;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-top: 0;
+  }
+
+  .closer-panel.is-open {
+    max-height: 4000px;
+    padding: 3rem 1.5rem 3.5rem;
+    border-top: 0.5px solid var(--hairline);
+  }
+
+  .closer-panel-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* Button styling for offering-link (accordion toggle) — matches link style */
+  button.offering-link {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+  }
+
+  button.offering-link.offering-toggle::after {
+    content: ' +';
+    transition: transform 0.2s, content 0.2s;
+    display: inline-block;
+    margin-left: 0.25em;
+  }
+
+  button.offering-link.offering-toggle[aria-expanded="true"]::after {
+    content: ' −';
   }
 
   .single-session-label {
@@ -960,16 +1015,10 @@
     Success is not<br>the problem.<br>
     <em>The drift away<br>from yourself is.</em>
   </h1>
-  <p class="hero-sub">Path 9 is a coaching practice for leaders ready to do the deeper work — and find their way back to what matters most.</p>
+  <p class="hero-sub">A coaching practice for founders, executives, and senior leaders ready to do the deeper work.</p>
 </section>
 
-<!-- 2. RECOGNITION -->
-<section class="recognition">
-  <p>You are here because something no longer fits.</p>
-  <p class="recognition-signal"><span class="signal">This is not a crisis. It is a signal.</span> This is where Path 9 begins.</p>
-</section>
-
-<!-- 2b. LANDING TESTIMONIAL -->
+<!-- 2. LANDING TESTIMONIAL -->
 <section class="landing-testimonial">
   <p class="landing-testimonial-quote">"I was at a point where I had almost stopped believing in what I was doing. Sanjeev didn't just help me see a way forward — he helped me remember why it mattered in the first place."</p>
   <span class="landing-testimonial-attribution">Founder, Paris</span>
@@ -977,7 +1026,7 @@
 
 <!-- 3. HOW WE WORK -->
 <section class="how">
-  <div class="how-label">How we work</div>
+  <div class="how-label">How I work</div>
   <p class="how-bespoke">All engagements are built entirely around <em>your specific situation</em> — not a generic version of it.</p>
   <div class="how-phases">
     <div class="phase">
@@ -1003,81 +1052,88 @@
   <div class="offerings-grid">
 
     <div class="offering-item">
-      <span class="offering-tag">Single Session</span>
       <span class="offering-name">The Single Session</span>
       <p class="offering-body">One dedicated conversation for those navigating a specific decision, situation, or crossroads that requires a trusted outside perspective. Complete in itself.</p>
       <span class="offering-meta">90 Minutes &nbsp;·&nbsp; 1:1 &nbsp;·&nbsp; Online or In Person</span>
-      <a class="offering-link" href="#single-session-detail">A closer look</a>
+      <button class="offering-link offering-toggle" data-target="single-session-detail" aria-expanded="false" aria-controls="single-session-detail">A closer look</button>
     </div>
 
     <div class="offering-item">
-      <span class="offering-tag">The Arc</span>
       <span class="offering-name">The Arc</span>
       <p class="offering-body">A structured journey through the full arc — Reset, Reconnect, Realign. Two sessions within each phase, allowing depth before moving to what comes next.</p>
       <span class="offering-meta">6 Sessions &nbsp;·&nbsp; 60 Minutes Each &nbsp;·&nbsp; 1:1 &nbsp;·&nbsp; Online or In Person</span>
-      <a class="offering-link" href="#arc-detail">A closer look</a>
+      <button class="offering-link offering-toggle" data-target="arc-detail" aria-expanded="false" aria-controls="arc-detail">A closer look</button>
     </div>
 
     <div class="offering-item">
-      <span class="offering-tag">For Organisations</span>
       <span class="offering-name">Path 9 for Organisations</span>
-      <p class="offering-body">For leaders, founders, and C-Suites — those who hold the weight of the organisation. Bespoke engagements: tailored sessions designed around what your team is actually navigating, ongoing one-to-one coaching, and in-person residencies.</p>
+      <p class="offering-body">For founders, executives, and leadership teams holding the weight of the organisation. The work is bespoke — for the leader, for the team, or for both.</p>
       <span class="offering-meta">Bespoke &nbsp;·&nbsp; Individual or Team &nbsp;·&nbsp; Online or In Person</span>
-      <a class="offering-link" href="#organisations-detail">A closer look</a>
+      <button class="offering-link offering-toggle" data-target="organisations-detail" aria-expanded="false" aria-controls="organisations-detail">A closer look</button>
     </div>
 
   </div>
 </section>
 
-<!-- 5a. SINGLE SESSION — CLOSER LOOK -->
-<section class="single-session" id="single-session-detail">
-  <div class="single-session-label">A closer look</div>
-  <h2 class="single-session-headline">
-    The Single Session.<br>
-    <em>One conversation. Complete in itself.</em>
-  </h2>
-  <p class="single-session-body">There are moments — in work, in life, or at the intersection of both — that call for a single conversation. A decision that needs a clear outside perspective. A situation that has become too complex to see from the inside. A conversation you cannot have with anyone currently in your world — because they are too close, too invested, or simply not equipped to hold it. The Single Session is that conversation.</p>
-  <p class="single-session-sub"><a class="discovery-link" href="#calendly-pending">A 15-minute conversation</a> to ensure the Single Session is the right fit.</p>
-</section>
+<!-- 5. CLOSER LOOK — ACCORDION PANELS -->
+<section class="closer-look-panels">
 
-<!-- 5b. THE ARC — CLOSER LOOK -->
-<section class="single-session" id="arc-detail">
-  <div class="single-session-label">A closer look</div>
-  <h2 class="single-session-headline">
-    The Arc.<br>
-    <em>Reset. Reconnect. Realign.</em>
-  </h2>
-  <p class="single-session-body">Deeper work requires shape and stages. It benefits from moving through with intention, giving each part of the process the room it actually needs.</p>
-  <p class="single-session-body">The Arc follows the three phases at the centre of Path 9: Reset, Reconnect, Realign. Each phase holds two to three sessions. The arc moves when the previous phase has fulfilled its purpose.</p>
-  <p class="single-session-body">Reset begins where you actually are — not where the role, the responsibilities, or the inherited expectations say you should be. We name the drift, the friction, the quiet erosion that has brought you here. Reconnect returns you to what genuinely matters — your values, your voice, your sense of self beneath the title and the track record. Realign is where it becomes practical — a sustainable path forward, grounded in who you are rather than who you have been performing as.</p>
-  <p class="single-session-body">The Arc holds the work at the depth it asks for.</p>
-  <p class="single-session-sub"><a class="discovery-link" href="#calendly-pending">A 30-minute conversation</a> to ensure The Arc is the right fit.</p>
-</section>
+  <!-- 5a. SINGLE SESSION — CLOSER LOOK -->
+  <div class="closer-panel" id="single-session-detail" role="region" aria-labelledby="single-session-toggle" hidden>
+    <div class="closer-panel-inner">
+      <div class="single-session-label">A closer look</div>
+      <h2 class="single-session-headline">
+        The Single Session.<br>
+        <em>One conversation. Complete in itself.</em>
+      </h2>
+      <p class="single-session-body">There are moments — in work, in life, or at the intersection of both — that call for a single conversation. A decision that needs a clear outside perspective. A situation that has become too complex to see from the inside. A conversation you cannot have with anyone currently in your world — because they are too close, too invested, or simply not equipped to hold it. The Single Session is that conversation.</p>
+      <p class="single-session-sub"><a class="discovery-link" href="#calendly-pending">A 30-minute conversation</a> to ensure the Single Session is the right fit.</p>
+    </div>
+  </div>
 
-<!-- 5c. PATH 9 FOR ORGANISATIONS — CLOSER LOOK -->
-<section class="single-session" id="organisations-detail">
-  <div class="single-session-label">A closer look</div>
-  <h2 class="single-session-headline">
-    Path 9 for Organisations.<br>
-    <em>For the people who hold the weight of the organisation.</em>
-  </h2>
-  <p class="single-session-body">Founders. Directors. C-Suites. Leadership teams holding the culture together while everything around them is shifting. The pressure at this level is different — and so is the kind of support it requires.</p>
-  <p class="single-session-body">Path 9 for Organisations is not a packaged corporate offering. It is built around the specific moment your organisation, or the leaders within it, are navigating. Engagements take shape in four ways — bespoke team work, themed mindfulness sessions, ongoing one-to-one coaching, and in-person residencies — and most clients move fluidly between them.</p>
-  <p class="single-session-body themes-heading">Main themes:</p>
-  <ul class="org-themes">
-    <li>Leadership under pressure</li>
-    <li>Navigating uncertainty</li>
-    <li>Preserving culture through change</li>
-    <li>Succession, continuity and legacy</li>
-    <li>Executive transition and reinvention</li>
-    <li>Ethical leadership in practice</li>
-  </ul>
-  <p class="single-session-body themes-heading">Specialist work:</p>
-  <ul class="org-themes">
-    <li>The loneliness of senior leadership</li>
-    <li>Mindfulness-led leadership</li>
-  </ul>
-  <p class="single-session-sub"><a class="discovery-link" href="#calendly-pending">A 30-minute conversation</a> to explore what would serve you and your organisation.</p>
+  <!-- 5b. THE ARC — CLOSER LOOK -->
+  <div class="closer-panel" id="arc-detail" role="region" aria-labelledby="arc-toggle" hidden>
+    <div class="closer-panel-inner">
+      <div class="single-session-label">A closer look</div>
+      <h2 class="single-session-headline">
+        The Arc.<br>
+        <em>Reset. Reconnect. Realign.</em>
+      </h2>
+      <p class="single-session-body">Deeper work asks for shape and stages. Each phase holds two sessions, giving the work the room it needs before moving to what comes next.</p>
+      <p class="single-session-body">Reset begins where you actually are — not where the role, the responsibilities, or the inherited expectations say you should be. We name the drift, the friction, the quiet erosion that has brought you here. Reconnect returns you to what genuinely matters — your values, your voice, your sense of self beneath the title and the track record. Realign is where it becomes practical — a sustainable path forward, grounded in who you are rather than who you have been performing as.</p>
+      <p class="single-session-body">The Arc holds the work at the depth it asks for.</p>
+      <p class="single-session-sub"><a class="discovery-link" href="#calendly-pending">A 30-minute conversation</a> to ensure The Arc is the right fit.</p>
+    </div>
+  </div>
+
+  <!-- 5c. PATH 9 FOR ORGANISATIONS — CLOSER LOOK -->
+  <div class="closer-panel" id="organisations-detail" role="region" aria-labelledby="organisations-toggle" hidden>
+    <div class="closer-panel-inner">
+      <div class="single-session-label">A closer look</div>
+      <h2 class="single-session-headline">
+        Path 9 for Organisations.<br>
+        <em>For the people who hold the weight of the organisation.</em>
+      </h2>
+      <p class="single-session-body">Founders. Directors. C-Suites. The pressure at this level is different — and so is the kind of support it requires.</p>
+      <p class="single-session-body">Path 9 for Organisations is not a packaged corporate offering. It is built around the specific moment your organisation, or the leaders within it, are navigating. Engagements take shape in three ways — bespoke team work, ongoing one-to-one coaching, and in-person residencies — and most clients move fluidly between them.</p>
+      <p class="single-session-body themes-heading">Main themes:</p>
+      <ul class="org-themes">
+        <li>Leadership under pressure</li>
+        <li>Navigating uncertainty</li>
+        <li>Preserving culture through change</li>
+        <li>Succession, continuity and legacy</li>
+        <li>Executive transition and reinvention</li>
+        <li>Ethical leadership in practice</li>
+      </ul>
+      <p class="single-session-body themes-heading">Specialist work:</p>
+      <ul class="org-themes">
+        <li>The loneliness of senior leadership</li>
+        <li>Mindfulness-led leadership</li>
+      </ul>
+      <p class="single-session-sub"><a class="discovery-link" href="#calendly-pending">A 30-minute conversation</a> to explore what would serve you and your organisation.</p>
+    </div>
+  </div>
+
 </section>
 
 <!-- 6. ABOUT SANJEEV -->
@@ -1090,8 +1146,9 @@
   </div>
   <p class="about-text">I have spent decades at senior leadership level, working alongside founders, directors, and senior leaders facing complexity, transition, and the quiet friction that so often accompanies success.</p>
   <p class="about-text">I have navigated it from the inside too. There was a point where everything looked right on the outside and felt misaligned on the inside. That experience — of living the drift, sitting with it honestly, and finding a way through — is what Path 9 was built from.</p>
-  <p class="about-text">At the heart of the practice is a simple premise: human intelligence is the resource, not the thing being fixed, and learning happens through doing. This is the Team Mastery methodology — born from Finland's Team Academy tradition, recognised by the Association for Coaching, and the foundation of my practice since I trained in it.</p>
-  <p class="about-text">Above all, I understand what it costs to carry responsibility over time: the pressure, the ambiguity, the weight of decisions, and the gradual distance that can emerge between outward success and what is felt within. What I bring is the understanding of what it takes to find your way back to yourself within it.</p>
+  <p class="about-text">At the heart of the practice is a simple premise: human intelligence is the resource, not the thing being fixed, and learning happens through doing.</p>
+  <p class="about-text">Path 9 is built on the Team Mastery methodology — born in Finland's Team Academy and recognised by the Association for Coaching. I completed Team Mastery with Akatemia in the UK, with certification from the Association for Coaching, and it has been the foundation of my practice since.</p>
+  <p class="about-text">Above all, I understand what it costs to carry responsibility over time: the pressure, the ambiguity, the weight of decisions, and the gradual distance that can emerge between outward success and what is felt within. What I bring is a way back.</p>
   <p class="about-signature">Sanjeev</p>
 </section>
 
@@ -1199,6 +1256,47 @@
       });
     });
   })();
+</script>
+
+<!-- Closer Look accordion -->
+<script>
+(function () {
+  var toggles = document.querySelectorAll('.offering-toggle');
+  toggles.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var targetId = btn.getAttribute('data-target');
+      var panel = document.getElementById(targetId);
+      if (!panel) return;
+      var isOpen = panel.classList.contains('is-open');
+
+      // Close any other open panel
+      document.querySelectorAll('.closer-panel.is-open').forEach(function (p) {
+        if (p !== panel) {
+          p.classList.remove('is-open');
+          p.setAttribute('hidden', '');
+          var otherBtn = document.querySelector('.offering-toggle[data-target="' + p.id + '"]');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      if (isOpen) {
+        panel.classList.remove('is-open');
+        panel.setAttribute('hidden', '');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        panel.removeAttribute('hidden');
+        // Force reflow so the transition runs
+        void panel.offsetHeight;
+        panel.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        // Scroll the panel into comfortable view
+        setTimeout(function () {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 200);
+      }
+    });
+  });
+})();
 </script>
 
 </body>
