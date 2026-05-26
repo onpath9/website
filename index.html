@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Path 9 — Updated 25 May 2026 — VS03 -->
+<!-- Path 9 — Updated 26 May 2026 — VS02 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -314,7 +314,8 @@
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-deep);
+    opacity: 0.9;
     margin-bottom: 1rem;
   }
 
@@ -656,6 +657,62 @@
     opacity: 0.85;
   }
 
+  /* TRUSTED BY — logo strip beneath About, on the orange backdrop */
+  .trusted-by {
+    margin-top: 3rem;
+  }
+
+  .trusted-by-divider {
+    width: 100%;
+    height: 0.5px;
+    background: rgba(250,245,240,0.22);
+    margin-bottom: 2rem;
+  }
+
+  .trusted-by-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.75;
+    margin-bottom: 1.8rem;
+  }
+
+  .trusted-by-logos {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .trusted-by-logos img {
+    height: 32px;
+    width: auto;
+    opacity: 0.88;
+    transition: opacity 0.25s;
+  }
+
+  /* British Council and UAL — solid black PNGs, filter to cream */
+  .trusted-by-logos img:not(.logo-akatemia) {
+    filter: brightness(0) invert(95%) sepia(8%) saturate(180%) hue-rotate(330deg) brightness(102%) contrast(95%);
+  }
+
+  /* UAL letterforms are taller — reduce slightly */
+  .trusted-by-logos img.logo-ual {
+    height: 26px;
+  }
+
+  /* Akatemia is multi-coloured SVG — leave native, slightly larger */
+  .trusted-by-logos img.logo-akatemia {
+    height: 36px;
+  }
+
+  .trusted-by-logos img:hover {
+    opacity: 1;
+  }
+
   /* TESTIMONIALS */
   .testimonials {
     background: var(--cream);
@@ -995,6 +1052,12 @@
       justify-content: space-between;
       align-items: flex-end;
     }
+
+    .trusted-by { margin-top: 3.5rem; }
+    .trusted-by-logos { gap: 3rem; }
+    .trusted-by-logos img { height: 38px; }
+    .trusted-by-logos img.logo-ual { height: 30px; }
+    .trusted-by-logos img.logo-akatemia { height: 42px; }
   }
 
   /* DESKTOP: 1100px and up */
@@ -1176,9 +1239,19 @@
   <p class="about-text">I have spent decades at senior leadership level, working alongside founders, directors, and senior leaders facing complexity, transition, and the quiet friction that so often accompanies success.</p>
   <p class="about-text">I have navigated it from the inside too. There was a point where everything looked right on the outside and felt misaligned on the inside. That experience — of living the drift, sitting with it honestly, and finding a way through — is what Path 9 was built from.</p>
   <p class="about-text">At the heart of the practice is a simple premise: human intelligence is the resource, not the thing being fixed, and learning happens through doing.</p>
-  <p class="about-text">Path 9 is built on the Team Mastery methodology — born in Finland's Team Academy and recognised by the Association for Coaching. I completed Team Mastery with Akatemia in the UK, with certification from the Association for Coaching, and it has been the foundation of my practice since.</p>
+  <p class="about-text">Path 9 is built on the Team Mastery methodology — born in Finland's Team Academy. I completed my Team Mastery coaching training with Akatemia UK, a programme and certification recognised by the Association for Coaching, and it has been the foundation of my practice since.</p>
   <p class="about-text">Above all, I understand what it costs to carry responsibility over time: the pressure, the ambiguity, the weight of decisions, and the gradual distance that can emerge between outward success and what is felt within. What I bring is a way back.</p>
   <p class="about-signature">Sanjeev</p>
+
+  <div class="trusted-by">
+    <div class="trusted-by-divider"></div>
+    <p class="trusted-by-label">Trusted by</p>
+    <div class="trusted-by-logos">
+      <img src="logos/akatemia.svg" alt="Akatemia UK" class="logo-akatemia">
+      <img src="logos/ual.png" alt="University of the Arts London" class="logo-ual">
+      <img src="logos/british-council.png" alt="British Council">
+    </div>
+  </div>
 </section>
 
 <!-- 6b. TESTIMONIALS -->
@@ -1207,7 +1280,7 @@
       <span class="faq-icon" aria-hidden="true"></span>
     </button>
     <div class="faq-answer">
-      <p class="faq-a">It varies by engagement. The Single Session is 90 minutes. The Arc holds six sessions of 60 minutes over an agreed period, with reflection and practice between them. Path 9 for Organisations takes shape around what the organisation is navigating. Beyond time, the work asks for honesty and a willingness to act on what you discover. Those who get the most from it are genuinely ready — not just curious.</p>
+      <p class="faq-a">It varies by engagement. The Single Session is 90 minutes. The Arc holds six sessions of 60 minutes over an agreed period, with reflection and practice between them. Path 9 for Organisations takes shape around what the organisation is navigating. Beyond time, the work asks for honesty, attention, and a willingness to act on what becomes clear. Those who get the most from it are genuinely ready — not just curious.</p>
     </div>
   </div>
 
@@ -1227,7 +1300,7 @@
       <span class="faq-icon" aria-hidden="true"></span>
     </button>
     <div class="faq-answer">
-      <p class="faq-a">Yes. What is said in our conversations stays between us. This is true for individual and for organisational engagements — even where an organisation is sponsoring the work, the content of each session remains confidential to the individual. The conditions for honest conversation depend on this, and Path 9 is built around it.</p>
+      <p class="faq-a">Yes. What is said in our conversations stays between us. This is true for individual and for organisational engagements — even where an organisation is sponsoring the work, the content of each session remains confidential to the individual. The conditions for honest reflection depend on trust, and Path 9 is built around it.</p>
     </div>
   </div>
 
@@ -1243,11 +1316,11 @@
 
   <div class="faq-item">
     <button class="faq-toggle" aria-expanded="false">
-      <span class="faq-q">The ethics of the practice.</span>
+      <span class="faq-q">Beyond commercial work?</span>
       <span class="faq-icon" aria-hidden="true"></span>
     </button>
     <div class="faq-answer">
-      <p class="faq-a">Each year, time is held for NGOs, social enterprises, and charities.</p>
+      <p class="faq-a">Each year, time is held for NGOs, charities, education, and community work.</p>
     </div>
   </div>
 
